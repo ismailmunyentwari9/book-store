@@ -22,9 +22,10 @@
   font-weight: 700;
   color: #0290ff;
 }
-ul{
+
+ul {
   display: flex;
-  gap:12px;
+  gap: 12px;
 }
 
 li {
