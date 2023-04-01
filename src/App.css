@@ -1,0 +1,35 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 4%;
+  padding-top: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+  padding-left: 4%;
+  background-color: white !important;
+}
+
+.horizontal-divider {
+  height: 0.125rem;
+  background-color: #e8e8e8;
+  width: 100%;
+  margin: 2.5rem 0 1.813rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .name-author-complited {
+    flex-direction: column;
+  }
+
+  .name-author {
+    width: 100% !important;
+  }
+
+  .complited-loader {
+    width: 100%;
+  }
+}

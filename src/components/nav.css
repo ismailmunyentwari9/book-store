@@ -1,0 +1,50 @@
+.links-holder {
+  padding: 24px 4%;
+  background-color: rgb(255, 254, 254);
+  border-bottom: 1px solid #8f8989;
+  box-shadow: 1px 2px 2px rgb(130, 128, 128) !important;
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-brand {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0290ff;
+}
+
+li {
+  list-style-type: none;
+}
+
+.links li a {
+  text-decoration: none;
+  list-style-type: none;
+  opacity: 0.5;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.813rem;
+  color: #121212;
+  letter-spacing: 1.9px;
+}
+
+.user-profile {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.813rem;
+  height: 2.813rem;
+  border-radius: 50%;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+}
