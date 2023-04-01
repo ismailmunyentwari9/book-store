@@ -24,11 +24,10 @@
 
 **[Book-Store]** The bookstore project is a software application designed to manage the inventory . The project includes a user-friendly interface that allows bookstore owners to easily add, edit, and remove books from their inventory, as well as process customer orders and manage their sales data in the future features.
 
-![Alt Text](path/to/image.jpg)
+![Alt Text](bookstore.png)
 
 
 ## 🛠 Built With <a name="HTML, CSS and REACT"></a>
-<img src="path/to/your/image.png" alt="Calculator Screenshot" width="600" />
 
 
 ### Tech Stack <a name="HTML, CSS and REACT"></a>
