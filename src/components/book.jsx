@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import './book.css';
 import './progress.css';

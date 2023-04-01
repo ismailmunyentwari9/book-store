@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import './form.css';
 
 const Form = ({
@@ -28,5 +28,13 @@ const Form = ({
     </div>
   </div>
 );
+
+Form.propTypes = {
+  handleForm: PropTypes.func.isRequired,
+  setAuthor: PropTypes.func.isRequired,
+  setTitle: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+};
 
 export default Form;

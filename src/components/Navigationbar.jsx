@@ -1,16 +1,15 @@
-/* eslint-disable react/void-dom-elements-no-children */
 import './nav.css';
-import { Route, Routes, Link } from 'react-router-dom';
-import Books from './books';
-import Categories from './categories';
+import { Link } from 'react-router-dom';
 
 const Nav = () => (
   <>
     <div className="container links-holder">
       <div className="links">
         <span className="nav-brand">Bookstore CMS</span>
-        <li><Link to="/">Books</Link></li>
-        <li><Link to="/categories">CATEGORIES</Link></li>
+        <ul>
+          <li><Link to="/">Books</Link></li>
+          <li><Link to="/Categories">CATEGORIES</Link></li>
+        </ul>
       </div>
 
       <div
@@ -24,10 +23,6 @@ const Nav = () => (
         />
       </div>
     </div>
-    <Routes>
-      <Route path="/" components={<Books />} />
-      <Route path="/categories" components={<Categories />} />
-    </Routes>
 
   </>
 );

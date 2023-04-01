@@ -22,6 +22,10 @@
   font-weight: 700;
   color: #0290ff;
 }
+ul{
+  display: flex;
+  gap:12px;
+}
 
 li {
   list-style-type: none;

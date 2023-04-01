@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import './books.css';
 import Book from './book';
@@ -20,7 +19,13 @@ function Books() {
     <div className="container books-holder">
       <Book bookstore={bookstore} />
       <div className="horizontal-divider" />
-      <Form handleForm={handleForm} setAuthor={setAuthor} setTitle={setTitle} title={title} author={author} />
+      <Form
+        handleForm={handleForm}
+        setAuthor={setAuthor}
+        setTitle={setTitle}
+        title={title}
+        author={author}
+      />
     </div>
   );
 }
