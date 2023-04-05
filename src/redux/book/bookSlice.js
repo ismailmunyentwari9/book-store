@@ -1,25 +1,28 @@
-const ADDBOOK = 'book-store/redux/book/bookSlice/ADDBOOK';
-const REMOVEBOOK = 'book-store/redux/book/bookSlice/REMOVEBOOK';
+/* eslint-disable no-param-reassign */
+// './src/redux/book/bookSlice.js';
+import { createSlice } from '@reduxjs/toolkit';
 
-const defultState = [];
-export const booReducer = (state = defultState, action) => {
-  switch (action.type) {
-    case ADDBOOK:
-      return [...state, action.payload];
-    case REMOVEBOOK:
-      return [...state.fiter((item) => item.id !== action.payload)];
-    default: return state;
-  }
-};
+export const bookSlice = createSlice({
+  name: 'books',
+  initialState: {
+    books: [],
+  },
+  reducers: {
+    AddBook: (state, action) => {
+      state.books = [
+        state.books, {
+          id: Math.floor(Math.random() * 100),
+          author: action.payload.author,
+          title: action.payload.author,
+        },
+      ];
+    },
 
-export const AddBook = (book) => ({
-  type: ADDBOOK,
-  payload: book,
+    RemoveBook: (state, action) => {
+      state.books = state.books.filter((items) => items.books !== action.payload.id);
+    },
+  },
 
 });
-
-export const RemoveBook = (id) => ({
-  type: ADDBOOK,
-  payload: id,
-
-});
+export const { AddBook, RemoveBook } = bookSlice.actions;
+export default bookSlice.reducer;

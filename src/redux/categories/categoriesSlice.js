@@ -1,15 +1,17 @@
-const STATUS = 'book-store/redux/book/bookSlice/STATUS';
+/* eslint-disable no-param-reassign */
+// 'redux/book/categories/categorieSlice';
+import { createSlice } from '@reduxjs/toolkit';
 
-const defultState = '';
-export const categoryReducer = (state = defultState, action) => {
-  switch (action.type) {
-    case STATUS:
-      return 'UNDER  CONSTRUCTION';
-    default:
-      return state;
-  }
-};
-
-export const Status = () => ({
-  type: STATUS,
+export const categorieSlice = createSlice({
+  name: 'checkStatus',
+  initialState: {
+    status: [],
+  },
+  reducers: {
+    checkStatus: (state, action) => {
+      state.status = action.payload === 'UNDER CONSTRUCION' ? 'UNDER CONSTRUCION' : state.status;
+    },
+  },
 });
+export const { checkStatus } = categorieSlice.actions;
+export default categorieSlice.reducer;
