@@ -1,11 +1,20 @@
 import PropTypes from 'prop-types';
 import './book.css';
 import './progress.css';
+import { useDispatch } from 'react-redux';
+import { RemoveBook } from '../redux/book/booksSlice';
 
 function Book({ bookstore }) {
+  const bookArray = bookstore.books;
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(RemoveBook({ id }));
+  };
+
   return (
     <div>
-      {bookstore.map((items) => (
+      {bookArray.map((items) => (
         <div key={items.id} className="container book">
           <div className="name-author-complited col-8">
             <div className="name-author">
@@ -15,7 +24,7 @@ function Book({ bookstore }) {
               <div className="action-button">
                 <button type="button">Comments</button>
                 <span className="vertical-divider" />
-                <button type="button">Remove</button>
+                <button type="button" onClick={() => handleDelete(items.id)}>Remove</button>
                 <span className="vertical-divider" />
                 <button type="button">Edit</button>
                 <span className="vertical-divider" />
@@ -54,14 +63,9 @@ function Book({ bookstore }) {
     </div>
   );
 }
+
 Book.propTypes = {
-  bookstore: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  bookstore: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Book;
