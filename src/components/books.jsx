@@ -1,31 +1,16 @@
-import React, { useState } from 'react';
+/* eslint-disable import/extensions */
 import './books.css';
+import { useSelector } from 'react-redux';
 import Book from './book';
 import Form from './Addform';
 
 function Books() {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [bookstore, setBookstore] = useState([]);
-
-  const handleForm = () => {
-    const newBook = { title, author };
-    setBookstore([...bookstore, newBook]);
-    setTitle('');
-    setAuthor('');
-  };
-
+  const bookstore = useSelector((state) => state.book);
   return (
     <div className="container books-holder">
       <Book bookstore={bookstore} />
       <div className="horizontal-divider" />
-      <Form
-        handleForm={handleForm}
-        setAuthor={setAuthor}
-        setTitle={setTitle}
-        title={title}
-        author={author}
-      />
+      <Form />
     </div>
   );
 }
