@@ -1,21 +1,12 @@
 import PropTypes from 'prop-types';
 import './book.css';
 import './progress.css';
-import { useDispatch } from 'react-redux';
-import { RemoveBook } from '../redux/book/booksSlice';
 
-function Book({ bookstore }) {
-  const bookArray = bookstore.books;
-  const dispatch = useDispatch();
-
-  const handleDelete = (id) => {
-    dispatch(RemoveBook({ id }));
-  };
-
+function Book({ books, handleRemoveBook }) {
   return (
     <div>
-      {bookArray.map((items) => (
-        <div key={items.id} className="container book">
+      {books.map((items) => (
+        <div key={items.item_id} className="container book">
           <div className="name-author-complited col-8">
             <div className="name-author">
               <span>Action</span>
@@ -24,7 +15,7 @@ function Book({ bookstore }) {
               <div className="action-button">
                 <button type="button">Comments</button>
                 <span className="vertical-divider" />
-                <button type="button" onClick={() => handleDelete(items.id)}>Remove</button>
+                <button type="button" onClick={() => handleRemoveBook(items.item_id)}>Remove</button>
                 <span className="vertical-divider" />
                 <button type="button">Edit</button>
                 <span className="vertical-divider" />
@@ -65,7 +56,8 @@ function Book({ bookstore }) {
 }
 
 Book.propTypes = {
-  bookstore: PropTypes.instanceOf(Object).isRequired,
+  books: PropTypes.instanceOf(Object).isRequired,
+  handleRemoveBook: PropTypes.instanceOf(Function).isRequired,
 };
 
 export default Book;

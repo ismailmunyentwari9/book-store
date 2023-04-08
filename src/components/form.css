@@ -1,8 +1,10 @@
-.form-group {
-  margin-top: 20px;
-  display: flex;
-  grid-gap: 32px;
-  gap: 32px;
+
+form {
+  display: grid;
+  padding-top: 2%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1%;
+  align-items: center;
 }
 
 input {
@@ -11,25 +13,19 @@ input {
   border: 1px solid #e8e8e8;
   background-color: #fff;
   font-size: 1rem;
+  height: 2.5rem;
+  flex-wrap: wrap;
   letter-spacing: -0.15px;
   color: #121212;
 }
 
-.form-group input:nth-child(1) {
-  width: 50%;
-}
-
-.form-group input:nth-child(2) {
-  width: 30%;
-}
-
-.form-group button {
+form button {
   cursor: pointer;
-  width: 20%;
   padding: 12px;
   border-radius: 3px;
   background-color: #0290ff;
   border: none;
+  height: 2.5rem;
   letter-spacing: 0.5px;
   color: #fff;
   font-size: 0.813rem;
