@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 import React, { useEffect } from 'react';
 import './books.css';
 import { useSelector, useDispatch } from 'react-redux';
