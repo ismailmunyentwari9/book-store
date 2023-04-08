@@ -76,7 +76,7 @@ To get a local copy up and running, follow these steps.
 
 ### Setup
 
-Clone this repository to your desired folder using the following command; git clone https://github.com/ismailmunyentwari9/book-store.gitt
+Clone this repository to your desired folder using the following command; git clone https://github.com/ismailmunyentwari9/book-store/issues
 
 ### Run tests
 
