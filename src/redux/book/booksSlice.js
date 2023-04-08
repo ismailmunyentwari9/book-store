@@ -1,46 +1,43 @@
 /* eslint-disable no-param-reassign */
-// './src/redux/book/bookSlice.js';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+  const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mBLKRya4XOFAB4UuU9wV/books');
+  return response.data;
+});
+
+export const addBook = createAsyncThunk('books/addBook', async (book) => {
+  await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mBLKRya4XOFAB4UuU9wV/books', book);
+  return book;
+});
+
+export const removeBook = createAsyncThunk('books/removeBook', async (bookId) => {
+  await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mBLKRya4XOFAB4UuU9wV/books/${bookId}`);
+  return bookId;
+});
 
 export const booksSlice = createSlice({
   name: 'books',
   initialState: {
-    books: [{
-      id: 1,
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      id: 2,
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      id: 3,
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    }],
+    books: [],
   },
-  reducers: {
-    AddBook: (state, action) => {
-      state.books = [
-        ...state.books, {
-          id: state.books.length + 1,
-          title: action.payload.title,
-          author: action.payload.author,
-        },
-      ];
-    },
-
-    RemoveBook: (state, action) => {
-      state.books = state.books.filter((items) => items.id !== action.payload.id);
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.books = Object.keys(action.payload).map((key) => ({
+          item_id: key,
+          ...action.payload[key][0],
+        }));
+      })
+      .addCase(addBook.fulfilled, (state, action) => {
+        state.books = [...state.books, action.payload];
+      })
+      .addCase(removeBook.fulfilled, (state, action) => {
+        state.books = state.books.filter((book) => book.item_id !== action.payload);
+      });
   },
-
 });
-export const { AddBook, RemoveBook } = booksSlice.actions;
-const bookReducer = booksSlice.reducer;
-export default bookReducer;
+
+export default booksSlice.reducer;
