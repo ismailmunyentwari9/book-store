@@ -1,12 +1,11 @@
 
-form{
-  display:grid;
+form {
+  display: grid;
   padding-top: 2%;
-  grid-template-columns:1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1%;
-  align-items:center;
+  align-items: center;
 }
-
 
 input {
   padding: 12px;
@@ -16,25 +15,23 @@ input {
   font-size: 1rem;
   height: 2.5rem;
   flex-wrap: wrap;
-  letter-spacing: -.15px;
+  letter-spacing: -0.15px;
   color: #121212;
 }
 
-
-  form button {
-      cursor: pointer;
-      padding: 12px;
-      border-radius: 3px;
-      background-color: #0290ff;
-      border: none;
-      height: 2.5rem;
-      letter-spacing: .5px;
-      color: #fff;
-      font-size: .813rem;
-      font-weight: 700;
-      font-family: "Roboto Slab",serif;
-  }
-
+form button {
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  border: none;
+  height: 2.5rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 0.813rem;
+  font-weight: 700;
+  font-family: "Roboto Slab", serif;
+}
 
 input::placeholder {
   font-size: 0.875rem;
