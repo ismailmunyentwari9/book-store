@@ -6,7 +6,7 @@ function Book({ books, handleRemoveBook }) {
   return (
     <div>
       {books.map((items) => (
-        <div key={items.id} className="container book">
+        <div key={items.item_id} className="container book">
           <div className="name-author-complited col-8">
             <div className="name-author">
               <span>Action</span>
