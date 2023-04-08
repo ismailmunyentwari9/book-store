@@ -8,6 +8,8 @@ function Book({ books, handleRemoveBook }) {
       {books.map((items) => (
         <div key={items.item_id} className="container book flex">
           <div className="name-author-complited flex col-8">
+        <div key={items.item_id} className="container book">
+          <div className="name-author-complited col-8">
             <div className="name-author">
               <span>Action</span>
               <h2>{items.title}</h2>

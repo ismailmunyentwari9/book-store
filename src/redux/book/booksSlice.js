@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -25,18 +24,21 @@ export const booksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.books = Object.keys(action.payload).map((key) => ({
+      .addCase(fetchBooks.fulfilled, (state, action) => ({
+        ...state,
+        books: Object.keys(action.payload).map((key) => ({
           item_id: key,
           ...action.payload[key][0],
-        }));
-      })
-      .addCase(addBook.fulfilled, (state, action) => {
-        state.books = [...state.books, action.payload];
-      })
-      .addCase(removeBook.fulfilled, (state, action) => {
-        state.books = state.books.filter((book) => book.item_id !== action.payload);
-      });
+        })),
+      }))
+      .addCase(addBook.fulfilled, (state, action) => ({
+        ...state,
+        books: [...state.books, action.payload],
+      }))
+      .addCase(removeBook.fulfilled, (state, action) => ({
+        ...state,
+        books: state.books.filter((book) => book.item_id !== action.payload),
+      }));
   },
 });
 
